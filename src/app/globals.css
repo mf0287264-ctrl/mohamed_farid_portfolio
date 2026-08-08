@@ -135,6 +135,71 @@ canvas + a {
   will-change: transform, filter;
 }
 
+/* Custom AI Icon Animations (Spin, Float, Orbit) */
+@keyframes icon-spin-slow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.6));
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.9));
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.6));
+  }
+}
+
+.animate-icon-spin {
+  animation: icon-spin-slow 7s linear infinite;
+  will-change: transform, filter;
+}
+
+@keyframes icon-float-move {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.6));
+  }
+  25% {
+    transform: translate(4px, -6px) rotate(12deg);
+    filter: drop-shadow(0 0 18px rgba(34, 211, 238, 0.8));
+  }
+  50% {
+    transform: translate(0px, -10px) rotate(-8deg);
+    filter: drop-shadow(0 0 22px rgba(34, 211, 238, 1));
+  }
+  75% {
+    transform: translate(-4px, -4px) rotate(6deg);
+    filter: drop-shadow(0 0 16px rgba(34, 211, 238, 0.8));
+  }
+}
+
+.animate-icon-float {
+  animation: icon-float-move 4.5s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+@keyframes icon-orbit-spin {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.6));
+  }
+  50% {
+    transform: translateY(-8px) rotate(-180deg) scale(1.1);
+    filter: drop-shadow(0 0 22px rgba(34, 211, 238, 1));
+  }
+  100% {
+    transform: translateY(0px) rotate(-360deg) scale(1);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.6));
+  }
+}
+
+.animate-icon-orbit {
+  animation: icon-orbit-spin 6s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
 /* Up to Down Digit Slide Animation for Project Numbers */
 @keyframes digit-slide-down {
   0% {
