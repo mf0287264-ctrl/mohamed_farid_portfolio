@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Caveat, Cinzel, Outfit } from "next/font/google";
 import SpaceBackground from "@/components/SpaceBackground";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,6 +48,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${cinzel.variable} ${outfit.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col relative text-slate-100 bg-[#020208]">
+        <CustomCursor />
         <SpaceBackground />
         {children}
       </body>
