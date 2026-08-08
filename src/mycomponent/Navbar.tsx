@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto max-w-4xl">
+    <nav className="relative z-50 mx-auto mt-6 w-fit max-w-4xl">
       <div className="bg-[#05050b]/80 backdrop-blur-2xl border border-white/10 rounded-full px-8 py-3.5 shadow-2xl shadow-purple-950/20 flex items-center gap-8 md:gap-12 transition-all">
         {/* LOGO */}
         <a

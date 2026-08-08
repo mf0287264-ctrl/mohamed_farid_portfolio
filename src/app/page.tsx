@@ -1,5 +1,9 @@
 import Navbar from "@/mycomponent/Navbar";
 import RobotSection from "@/mycomponent/RobotSection";
+import MarqueeTicker from "@/mycomponent/MarqueeTicker";
+import WhatIDoSection from "@/mycomponent/WhatIDoSection";
+import CareerExperienceSection from "@/mycomponent/CareerExperienceSection";
+import ProjectsSection from "@/mycomponent/ProjectsSection";
 import MenuDropdown from "@/mycomponent/MenuDropdown";
 import WhatsAppButton from "@/mycomponent/WhatsAppButton";
 
@@ -9,6 +13,10 @@ export default function Home() {
       <Navbar />
       <MenuDropdown />
       <RobotSection />
+      <MarqueeTicker />
+      <WhatIDoSection />
+      <CareerExperienceSection />
+      <ProjectsSection />
       <WhatsAppButton />
     </main>
   );

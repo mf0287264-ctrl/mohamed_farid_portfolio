@@ -41,7 +41,7 @@ export default function MenuDropdown() {
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) rotate(${position.x * 0.48}deg) scale(1.08)`,
         }}
-        className="group relative w-16 h-16 rounded-full bg-slate-300/90 hover:bg-white text-slate-900 border border-white/40 shadow-2xl shadow-purple-950/40 flex items-center justify-center cursor-pointer backdrop-blur-xl transition-transform duration-150 ease-out will-change-transform"
+        className="group relative w-16 h-16 rounded-full bg-slate-200/90 hover:bg-white text-slate-900 border border-cyan-400/30 shadow-2xl shadow-cyan-950/40 flex items-center justify-center cursor-pointer backdrop-blur-xl transition-transform duration-150 ease-out will-change-transform"
         aria-label="Toggle Menu"
       >
         {isOpen ? (
@@ -62,18 +62,17 @@ export default function MenuDropdown() {
 
       {/* DROPDOWN MENU PANEL */}
       {isOpen && (
-        <div className="absolute top-20 right-0 w-64 rounded-3xl bg-[#0d0d16]/95 backdrop-blur-2xl border border-white/15 shadow-2xl p-5 flex flex-col gap-2 z-50 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="absolute top-20 right-0 w-64 rounded-3xl bg-slate-950/90 backdrop-blur-2xl border border-cyan-400/25 shadow-2xl p-5 flex flex-col gap-2 z-50 animate-in fade-in slide-in-from-top-4 duration-200">
           {[
-            { label: "PROJECTS", href: "#projects" },
+            { label: "SERVICES", href: "#services" },
             { label: "EXPERIENCE", href: "#experience" },
-            { label: "TESTIMONIALS", href: "#testimonials" },
             { label: "CONTACT", href: "#contact" },
           ].map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="px-4 py-3 rounded-2xl text-xs font-bold tracking-widest text-slate-200 hover:text-white hover:bg-white/15 transition-all font-outfit uppercase"
+              className="px-4 py-3 rounded-2xl text-xs font-bold tracking-widest text-slate-200 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all font-outfit uppercase"
             >
               {item.label}
             </a>
