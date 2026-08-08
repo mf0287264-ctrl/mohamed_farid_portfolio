@@ -1,13 +1,44 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { HiOutlineX } from "react-icons/hi";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 export default function MenuDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [innerPosition, setInnerPosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const targetId = href.replace("#", "");
+    if (!targetId) {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: 0 },
+        ease: "power3.inOut",
+      });
+      return;
+    }
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: targetEl, offsetY: 80 },
+        ease: "power3.inOut",
+      });
+    }
+  };
 
   // Dynamic High-Intensity Mouse Magnet & Shake Physics
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -65,13 +96,16 @@ export default function MenuDropdown() {
         <div className="absolute top-20 right-0 w-64 rounded-3xl bg-slate-950/90 backdrop-blur-2xl border border-cyan-400/25 shadow-2xl p-5 flex flex-col gap-2 z-50 animate-in fade-in slide-in-from-top-4 duration-200">
           {[
             { label: "SERVICES", href: "#services" },
+            { label: "SKILLS", href: "#skills" },
             { label: "EXPERIENCE", href: "#experience" },
+            { label: "PROJECTS", href: "#projects" },
+            { label: "ABOUT ME", href: "#about" },
             { label: "CONTACT", href: "#contact" },
           ].map((item) => (
             <a
               key={item.label}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="px-4 py-3 rounded-2xl text-xs font-bold tracking-widest text-slate-200 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all font-outfit uppercase"
             >
               {item.label}

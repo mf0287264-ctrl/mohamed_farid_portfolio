@@ -23,7 +23,6 @@ interface ProjectData {
 
 export default function ProjectsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
   const stickyNumberRef = useRef<HTMLDivElement>(null);
   const projectsTrackRef = useRef<HTMLDivElement>(null);
   const digitStripRef = useRef<HTMLDivElement>(null);
@@ -84,38 +83,28 @@ export default function ProjectsSection() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Header illumination
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0.3, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              end: "top 45%",
-              scrub: true,
-            },
-          },
-        );
-      }
-
-      // 2. SCRUB THE VERTICAL DIGIT STRIP (1 -> 2 -> 3 -> 4) FROM UP TO DOWN MATCHING SCROLL
-      if (projectsTrackRef.current && digitStripRef.current) {
+      // Bi-Directional Digit Roll for 01 -> 02 -> 03 -> 04
+      const updateDigitStrip = (idx: number) => {
+        if (!digitStripRef.current) return;
         gsap.to(digitStripRef.current, {
-          yPercent: -75, // Moves strip down from 1 (0%) -> 2 (-25%) -> 3 (-50%) -> 4 (-75%)
-          ease: "none",
-          scrollTrigger: {
-            trigger: projectsTrackRef.current,
-            start: "top top+=120",
-            end: "bottom bottom-=350",
-            scrub: 0.3,
-          },
+          yPercent: -25 * idx, // 0 -> 0%, 1 -> -25%, 2 -> -50%, 3 -> -75%
+          duration: 0.45,
+          ease: "power2.out",
+          overwrite: "auto",
         });
-      }
+      };
+
+      cardRefs.current.forEach((cardEl, idx) => {
+        if (!cardEl) return;
+
+        ScrollTrigger.create({
+          trigger: cardEl,
+          start: "top 55%",
+          end: "bottom 45%",
+          onEnter: () => updateDigitStrip(idx),
+          onEnterBack: () => updateDigitStrip(idx),
+        });
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -131,71 +120,73 @@ export default function ProjectsSection() {
       <div className="pointer-events-none absolute top-1/4 right-10 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[150px]" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* SECTION HEADER */}
-        <div ref={headerRef} className="mb-20">
-          <span className="mb-3 block text-xs font-mono tracking-[0.3em] text-cyan-300 uppercase">
-            ( PORTFOLIO )
-          </span>
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight font-outfit text-white">
-            Selected <span className="text-cyan-300">Projects</span>
-          </h2>
-        </div>
-
         {/* PROJECTS TRACK GRID CONTAINER */}
         <div
           ref={projectsTrackRef}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative items-start"
         >
-          {/* LEFT COLUMN: ROCK-SOLID STICKY HUGE SINGLE NUMBER WITH UP-TO-DOWN ROLLING REEL */}
+          {/* LEFT COLUMN: INTEGRATED STICKY HEADER & ROCK-SOLID NUMBER REEL */}
           <div
             ref={stickyNumberRef}
-            className="lg:col-span-5 sticky top-28 self-start flex flex-col justify-center py-4 z-30 select-none"
+            className="lg:col-span-5 sticky top-28 self-start flex flex-col py-4 z-30 select-none"
           >
+            {/* SECTION HEADER INTEGRATED INSIDE STICKY COLUMN */}
+            <div className="mb-6">
+              <span className="mb-2 block text-xs font-mono tracking-[0.3em] text-cyan-300 uppercase">
+                ( PORTFOLIO )
+              </span>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight font-outfit text-white">
+                Selected <span className="text-cyan-300">Projects</span>
+              </h2>
+            </div>
+
+            {/* HUGE NUMBER WITH VERTICAL DIGIT REEL */}
             <div className="relative inline-flex items-baseline font-outfit font-extrabold tracking-tighter text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.1)]">
               {/* FIXED "0" */}
-              <span className="text-[9rem] sm:text-[13rem] md:text-[17rem] leading-none text-slate-100">
+              <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100">
                 0
               </span>
 
               {/* VERTICAL ROLLING DIGIT REEL STRIP ("1" -> "2" -> "3" -> "4") */}
-              <div className="relative inline-block overflow-hidden h-[9rem] sm:h-[13rem] md:h-[17rem] w-[5rem] sm:w-[8rem] md:w-[10.5rem]">
+              <div className="relative inline-block overflow-hidden h-[7rem] sm:h-[10rem] md:h-[13rem] w-[4.5rem] sm:w-[6.5rem] md:w-[8.5rem]">
                 <div
                   ref={digitStripRef}
-                  className="flex flex-col items-center w-full"
+                  className="flex flex-col items-center w-full will-change-transform"
                 >
-                  <span className="text-[9rem] sm:text-[13rem] md:text-[17rem] leading-none text-slate-100 h-[9rem] sm:h-[13rem] md:h-[17rem] flex items-center justify-center">
+                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
                     1
                   </span>
-                  <span className="text-[9rem] sm:text-[13rem] md:text-[17rem] leading-none text-slate-100 h-[9rem] sm:h-[13rem] md:h-[17rem] flex items-center justify-center">
+                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
                     2
                   </span>
-                  <span className="text-[9rem] sm:text-[13rem] md:text-[17rem] leading-none text-slate-100 h-[9rem] sm:h-[13rem] md:h-[17rem] flex items-center justify-center">
+                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
                     3
                   </span>
-                  <span className="text-[9rem] sm:text-[13rem] md:text-[17rem] leading-none text-slate-100 h-[9rem] sm:h-[13rem] md:h-[17rem] flex items-center justify-center">
+                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
                     4
                   </span>
                 </div>
               </div>
 
               {/* FIXED DOT "." WITH GLOWING CYAN ACCENT */}
-              <span className="text-[9rem] sm:text-[13rem] md:text-[17rem] leading-none text-slate-100 relative">
-                .{/* Glowing Accent Dot Inside Period */}
-                <span className="absolute left-[30%] top-[45%] -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-cyan-400 shadow-[0_0_35px_rgba(34,211,238,1)] pointer-events-none animate-pulse" />
+              <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 relative">
+                .
+                {/* Glowing Accent Dot Inside Period */}
+                <span className="absolute left-[30%] top-[45%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-cyan-400 shadow-[0_0_35px_rgba(34,211,238,1)] pointer-events-none animate-pulse" />
               </span>
             </div>
 
-            {/* Project Indicator Label */}
-            <div className="mt-2 flex items-center gap-3">
+            {/* Project Indicator Bar */}
+            <div className="mt-4 flex items-center gap-3">
               <span className="h-[2px] w-12 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
               <span className="text-xs font-mono tracking-widest text-cyan-300 uppercase">
-                SELECTED PROJECTS
+                SCROLL TO EXPLORE
               </span>
             </div>
           </div>
 
           {/* RIGHT COLUMN: 4 PROJECT CARDS STACK */}
-          <div className="lg:col-span-7 flex flex-col gap-28 sm:gap-40">
+          <div className="lg:col-span-7 flex flex-col gap-28 sm:gap-40 pt-4">
             {projects.map((project, index) => (
               <div
                 key={project.id}

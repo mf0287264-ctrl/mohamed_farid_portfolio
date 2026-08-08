@@ -22,8 +22,8 @@ export default function CareerExperienceSection() {
   const headerRef = useRef<HTMLDivElement>(null);
   const timelineTrackRef = useRef<HTMLDivElement>(null);
   const lineProgressRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const experiences: ExperienceItem[] = [
     {
@@ -60,27 +60,23 @@ export default function CareerExperienceSection() {
       if (headerRef.current) {
         gsap.fromTo(
           headerRef.current,
-          { opacity: 0.3, y: 30 },
+          { opacity: 0.2, y: 30 },
           {
             opacity: 1,
             y: 0,
             duration: 1,
             scrollTrigger: {
               trigger: headerRef.current,
-              start: "top 85%",
-              end: "top 55%",
-              scrub: true,
+              start: "top 75%",
+              end: "top 45%",
+              scrub: 0.5,
             },
           }
         );
       }
 
-      // 2. Vertical Line Progress & Glowing Indicator Dot Animation Across Paragraphs
-      if (
-        timelineTrackRef.current &&
-        lineProgressRef.current &&
-        dotRef.current
-      ) {
+      // 2. Continuous Line Growth from Item 1 to Item 3
+      if (timelineTrackRef.current && lineProgressRef.current) {
         gsap.fromTo(
           lineProgressRef.current,
           { scaleY: 0 },
@@ -89,50 +85,103 @@ export default function CareerExperienceSection() {
             ease: "none",
             scrollTrigger: {
               trigger: timelineTrackRef.current,
-              start: "top 70%",
-              end: "bottom 70%",
-              scrub: true,
-            },
-          }
-        );
-
-        gsap.fromTo(
-          dotRef.current,
-          { top: "0%" },
-          {
-            top: "100%",
-            ease: "none",
-            scrollTrigger: {
-              trigger: timelineTrackRef.current,
-              start: "top 70%",
-              end: "bottom 70%",
-              scrub: true,
+              start: "top 60%",
+              end: "bottom 60%",
+              scrub: 0.5,
             },
           }
         );
       }
 
-      // 3. Sequential Item Illumination & Reveal on Scroll
-      itemRefs.current.forEach((itemEl) => {
+      // 3. Synchronized Item Node Dots & Text Illumination
+      itemRefs.current.forEach((itemEl, idx) => {
         if (!itemEl) return;
 
-        gsap.fromTo(
-          itemEl,
-          { opacity: 0.25, y: 35, filter: "blur(3px)" },
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: itemEl,
-              start: "top 80%",
-              end: "top 45%",
-              scrub: true,
+        const dotEl = dotRefs.current[idx];
+        const titleEl = itemEl.querySelector(".exp-title");
+        const companyEl = itemEl.querySelector(".exp-company");
+        const dateEl = itemEl.querySelector(".exp-date");
+        const descEl = itemEl.querySelector(".exp-desc");
+
+        // Timeline Node Dot illuminates into glowing cyan when scrolled into view
+        if (dotEl) {
+          gsap.fromTo(
+            dotEl,
+            {
+              scale: 0.8,
+              backgroundColor: "#1e293b", // slate-800
+              borderColor: "#475569", // slate-600
+              boxShadow: "0 0 0px rgba(34, 211, 238, 0)",
             },
-          }
-        );
+            {
+              scale: 1.3,
+              backgroundColor: "#22d3ee", // Glowing Cyan
+              borderColor: "#ffffff",
+              boxShadow: "0 0 25px rgba(34, 211, 238, 1)",
+              scrollTrigger: {
+                trigger: itemEl,
+                start: "top 65%",
+                end: "top 45%",
+                scrub: 0.3,
+              },
+            }
+          );
+        }
+
+        // Role title illuminates in cyan glow
+        if (titleEl) {
+          gsap.fromTo(
+            titleEl,
+            { opacity: 0.25, color: "rgba(255, 255, 255, 0.3)" },
+            {
+              opacity: 1,
+              color: "#22d3ee",
+              textShadow: "0 0 20px rgba(34, 211, 238, 0.6)",
+              scrollTrigger: {
+                trigger: itemEl,
+                start: "top 65%",
+                end: "top 45%",
+                scrub: 0.3,
+              },
+            }
+          );
+        }
+
+        // Date lights up in crisp white
+        if (dateEl) {
+          gsap.fromTo(
+            dateEl,
+            { opacity: 0.25, color: "rgba(255, 255, 255, 0.3)" },
+            {
+              opacity: 1,
+              color: "#ffffff",
+              scrollTrigger: {
+                trigger: itemEl,
+                start: "top 65%",
+                end: "top 45%",
+                scrub: 0.3,
+              },
+            }
+          );
+        }
+
+        // Company & Description light up smoothly
+        if (companyEl && descEl) {
+          gsap.fromTo(
+            [companyEl, descEl],
+            { opacity: 0.25, color: "rgba(203, 213, 225, 0.3)" },
+            {
+              opacity: 1,
+              color: "rgba(248, 250, 252, 0.95)",
+              scrollTrigger: {
+                trigger: itemEl,
+                start: "top 65%",
+                end: "top 45%",
+                scrub: 0.3,
+              },
+            }
+          );
+        }
       });
     }, sectionRef);
 
@@ -170,19 +219,13 @@ export default function CareerExperienceSection() {
           ref={timelineTrackRef}
           className="relative flex flex-col gap-24 sm:gap-32"
         >
-          {/* SINGLE CONTINUOUS VERTICAL CONNECTING LINE WITH GLOWING DOT INDICATOR */}
-          <div className="hidden md:block absolute left-[56%] top-6 bottom-6 w-[2px] -translate-x-1/2 z-20 pointer-events-none">
-            <div className="relative h-full w-full bg-cyan-400/20">
+          {/* SINGLE CONTINUOUS VERTICAL CONNECTING LINE AT EXACT 54.16% CENTER COLUMN GRID */}
+          <div className="hidden md:block absolute left-[54.166%] top-6 bottom-6 w-[2px] -translate-x-1/2 z-10 pointer-events-none">
+            <div className="relative h-full w-full bg-slate-800/80">
               {/* Moving Animated Gradient Line Progress (Cyan -> Sky -> Indigo) */}
               <div
                 ref={lineProgressRef}
-                className="absolute top-0 left-0 h-full w-full origin-top scale-y-0 bg-gradient-to-b from-cyan-400 via-sky-400 to-indigo-400 shadow-[0_0_15px_rgba(34,211,238,0.8)]"
-              />
-
-              {/* Moving Glowing Cyan Indicator Dot */}
-              <div
-                ref={dotRef}
-                className="pointer-events-none absolute -left-[7px] top-0 h-4 w-4 rounded-full border-2 border-white bg-cyan-300 shadow-[0_0_25px_rgba(34,211,238,1)] transition-transform duration-75 z-30"
+                className="absolute top-0 left-0 h-full w-full origin-top scale-y-0 bg-gradient-to-b from-cyan-400 via-sky-400 to-indigo-400 shadow-[0_0_18px_rgba(34,211,238,0.9)] will-change-transform"
               />
             </div>
           </div>
@@ -199,28 +242,35 @@ export default function CareerExperienceSection() {
               <div className="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-baseline">
                 {/* ROLE & COMPANY */}
                 <div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-outfit leading-tight transition-colors group-hover:text-cyan-300">
+                  <h3 className="exp-title text-2xl sm:text-3xl md:text-4xl font-extrabold font-outfit leading-tight transition-colors">
                     {exp.role}
                   </h3>
-                  <p className="text-sm font-mono text-slate-400 mt-2">
+                  <p className="exp-company text-sm font-mono mt-2 transition-colors">
                     {exp.company}
                   </p>
                 </div>
 
                 {/* DATE RANGE */}
                 <div>
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-outfit tracking-tight block">
+                  <span className="exp-date text-2xl sm:text-3xl md:text-4xl font-extrabold font-outfit tracking-tight block transition-colors">
                     {exp.date}
                   </span>
                 </div>
               </div>
 
-              {/* COLUMN 3: SPACER FOR VERTICAL CONNECTING LINE */}
-              <div className="hidden md:block md:col-span-1" />
+              {/* COLUMN 3: SPACER FOR VERTICAL CONNECTING LINE WITH NODE DOT */}
+              <div className="hidden md:flex md:col-span-1 items-center justify-center relative z-20">
+                <div
+                  ref={(el) => {
+                    dotRefs.current[index] = el;
+                  }}
+                  className="w-4 h-4 rounded-full border-2 border-slate-600 bg-slate-800 transition-all duration-300 will-change-transform"
+                />
+              </div>
 
               {/* COLUMN 4: DESCRIPTION */}
               <div className="md:col-span-5">
-                <p className="text-sm sm:text-base md:text-lg text-slate-300/90 font-light leading-relaxed font-outfit">
+                <p className="exp-desc text-sm sm:text-base md:text-lg font-light leading-relaxed font-outfit transition-colors">
                   {exp.description}
                 </p>
               </div>
