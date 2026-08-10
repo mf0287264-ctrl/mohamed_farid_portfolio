@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HiOutlineEnvelope, HiOutlineMapPin } from "react-icons/hi2";
 import { FaWhatsapp } from "react-icons/fa";
 import { PiFanFill } from "react-icons/pi";
-import { supabase } from "../lib/supabase";
+import { submitContactForm } from "../actions/contact";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -30,13 +30,11 @@ export default function ContactSection() {
     setIsSubmitting(true);
     
     try {
-      const { error } = await supabase
-        .from('contacts')
-        .insert([{ email, message }]);
+      const result = await submitContactForm(email, message);
 
-      if (error) {
-        console.error("Error submitting form:", error);
-        alert("There was an error sending your message. Please try again later.");
+      if (!result.success) {
+        console.error("Error submitting form:", result.error);
+        alert(result.error || "There was an error sending your message. Please try again later.");
       } else {
         setSubmitted(true);
         setTimeout(() => {
@@ -47,6 +45,7 @@ export default function ContactSection() {
       }
     } catch (err) {
       console.error("Unexpected error:", err);
+      alert("An unexpected error occurred.");
     } finally {
       setIsSubmitting(false);
     }
