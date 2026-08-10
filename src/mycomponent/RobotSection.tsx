@@ -60,7 +60,7 @@ export default function RobotSection() {
         <div className="mt-8 flex flex-wrap items-center gap-5">
           <a
             href="/cv/MohamadTareq-AiEngineer.pdf"
-            rel="noopener noreferrer"
+            download="MohamadTareq-AiEngineer.pdf"
             className="group pointer-events-auto inline-flex items-center gap-3 rounded-full border border-cyan-300/50 bg-cyan-300/10 px-6 py-3 text-sm font-bold tracking-[0.16em] text-cyan-100 uppercase font-outfit shadow-[0_0_24px_rgba(34,211,238,0.16)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-200 hover:bg-cyan-300 hover:text-slate-950 hover:shadow-[0_0_30px_rgba(34,211,238,0.42)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
           >
             Download CV
