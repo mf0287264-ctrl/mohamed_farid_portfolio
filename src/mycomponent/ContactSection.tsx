@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HiOutlineEnvelope, HiOutlineMapPin } from "react-icons/hi2";
 import { FaWhatsapp } from "react-icons/fa";
 import { PiFanFill } from "react-icons/pi";
+import { supabase } from "../lib/supabase";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -20,16 +21,35 @@ export default function ContactSection() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !message) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setEmail("");
-      setMessage("");
-      setSubmitted(false);
-    }, 4000);
+    if (!email || !message || isSubmitting) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .insert([{ email, message }]);
+
+      if (error) {
+        console.error("Error submitting form:", error);
+        alert("There was an error sending your message. Please try again later.");
+      } else {
+        setSubmitted(true);
+        setTimeout(() => {
+          setEmail("");
+          setMessage("");
+          setSubmitted(false);
+        }, 4000);
+      }
+    } catch (err) {
+      console.error("Unexpected error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -241,9 +261,10 @@ export default function ContactSection() {
                 {/* SEND MESSAGE PILL BUTTON */}
                 <button
                   type="submit"
-                  className="px-8 sm:px-10 py-4 rounded-full border border-cyan-400/80 bg-slate-950 text-white hover:bg-cyan-400 hover:text-slate-950 font-mono text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]"
+                  disabled={isSubmitting || submitted}
+                  className="px-8 sm:px-10 py-4 rounded-full border border-cyan-400/80 bg-slate-950 text-white hover:bg-cyan-400 hover:text-slate-950 font-mono text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {submitted ? "MESSAGE SENT!" : "SEND MESSAGE"}
+                  {isSubmitting ? "SENDING..." : submitted ? "MESSAGE SENT!" : "SEND MESSAGE"}
                 </button>
               </div>
             </form>
