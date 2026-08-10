@@ -33,8 +33,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "3D Space Portfolio",
-  description: "An immersive 3D interactive portfolio floating in moving deep space.",
+  title: "mohamed tareq - AI Engineer",
+  description:
+    "mohamed tareq is an AI Engineer specializing in developing and implementing advanced artificial intelligence solutions. With expertise in machine learning, deep learning, and natural language processing, he creates innovative applications that leverage AI to solve complex problems. His work focuses on building intelligent systems that enhance user experiences and drive technological advancements across various industries.",
 };
 
 export default function RootLayout({
@@ -47,7 +48,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${cinzel.variable} ${outfit.variable} h-full antialiased dark`}
     >
-      <body suppressHydrationWarning className="min-h-full flex flex-col relative text-slate-100 bg-[#020208]">
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col relative text-slate-100 bg-[#020208]"
+      >
         <CustomCursor />
         <SpaceBackground />
         {children}
