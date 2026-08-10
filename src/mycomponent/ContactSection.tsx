@@ -9,7 +9,7 @@ import { PiFanFill } from "react-icons/pi";
 import { ImSpinner2 } from "react-icons/im";
 import { z } from "zod";
 import { toast } from "react-hot-toast";
-import { supabase } from "../lib/supabase";
+import { submitContactForm } from "../actions/contact";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -85,9 +85,7 @@ export default function ContactSection() {
 
     try {
       const startTime = Date.now();
-      const { error } = await supabase
-        .from("contacts")
-        .insert([{ email: email.trim(), message: message.trim() }]);
+      const result = await submitContactForm(email.trim(), message.trim());
 
       // Ensure minimum spinner visible time (800ms) for smooth UX
       const elapsedTime = Date.now() - startTime;
@@ -95,8 +93,8 @@ export default function ContactSection() {
         await new Promise((res) => setTimeout(res, 800 - elapsedTime));
       }
 
-      if (error) {
-        console.error("Error submitting form:", error);
+      if (!result.success) {
+        console.error("Error submitting form:", result.error);
         const errorMsg = "Failed to send your message. Please verify database connection or try again later.";
         setServerError(errorMsg);
         toast.error("Failed to send message. Please try again!");
