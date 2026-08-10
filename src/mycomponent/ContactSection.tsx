@@ -20,7 +20,9 @@ const contactSchema = z.object({
   email: z
     .string()
     .min(1, { message: "Email address is required." })
-    .email({ message: "Please enter a valid email address (e.g. name@domain.com)." }),
+    .email({
+      message: "Please enter a valid email address (e.g. name@domain.com).",
+    }),
   message: z
     .string()
     .min(1, { message: "Message is required." })
@@ -76,7 +78,9 @@ export default function ContactSection() {
         }
       });
       setErrors(fieldErrors);
-      toast.error(validationResult.error.issues[0]?.message || "Please fix form errors.");
+      toast.error(
+        validationResult.error.issues[0]?.message || "Please fix form errors.",
+      );
       return;
     }
 
@@ -95,7 +99,8 @@ export default function ContactSection() {
 
       if (!result.success) {
         console.error("Error submitting form:", result.error);
-        const errorMsg = "Failed to send your message. Please verify database connection or try again later.";
+        const errorMsg =
+          "Failed to send your message. Please verify database connection or try again later.";
         setServerError(errorMsg);
         toast.error("Failed to send message. Please try again!");
       } else {
@@ -275,7 +280,7 @@ export default function ContactSection() {
                     LOCATION
                   </span>
                   <span className="text-base sm:text-lg font-semibold text-white font-outfit">
-                    Cairo, Egypt
+                    Giza, Egypt
                   </span>
                 </div>
               </div>
@@ -287,7 +292,11 @@ export default function ContactSection() {
             ref={formCardRef}
             className="lg:col-span-6 rounded-3xl border border-cyan-400/30 bg-transparent p-8 sm:p-10 relative shadow-[0_0_50px_rgba(34,211,238,0.25),inset_0_0_20px_rgba(34,211,238,0.05)] hover:shadow-[0_0_75px_rgba(34,211,238,0.4)] transition-all duration-500"
           >
-            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="flex flex-col gap-8"
+            >
               {/* SERVER ERROR ALERT */}
               {serverError && (
                 <div className="p-4 rounded-xl border border-rose-500/50 bg-rose-950/40 text-rose-300 font-outfit text-xs sm:text-sm shadow-lg">
