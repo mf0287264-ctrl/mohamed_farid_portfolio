@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Caveat, Cinzel, Outfit } from "next/font/google";
 import SpaceBackground from "@/components/SpaceBackground";
 import CustomCursor from "@/components/CustomCursor";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -52,6 +53,41 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-full flex flex-col relative text-slate-100 bg-[#020208]"
       >
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#090d16",
+              color: "#f8fafc",
+              border: "1px solid rgba(34, 211, 238, 0.3)",
+              boxShadow: "0 0 25px rgba(34, 211, 238, 0.2)",
+              padding: "14px 18px",
+              borderRadius: "16px",
+              fontSize: "14px",
+            },
+            success: {
+              iconTheme: {
+                primary: "#22d3ee",
+                secondary: "#090d16",
+              },
+            },
+            error: {
+              style: {
+                background: "#090d16",
+                color: "#f8fafc",
+                border: "1px solid rgba(244, 63, 94, 0.4)",
+                boxShadow: "0 0 25px rgba(244, 63, 94, 0.2)",
+                padding: "14px 18px",
+                borderRadius: "16px",
+                fontSize: "14px",
+              },
+              iconTheme: {
+                primary: "#f43f5e",
+                secondary: "#090d16",
+              },
+            },
+          }}
+        />
         <CustomCursor />
         <SpaceBackground />
         {children}
