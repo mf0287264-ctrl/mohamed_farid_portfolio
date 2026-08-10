@@ -43,7 +43,7 @@ export default function RobotSection() {
         {/* Customer name */}
         <p className="mb-4 flex items-center gap-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[0.28em] text-slate-300 uppercase font-outfit">
           <span className="h-px w-8 bg-gradient-to-r from-violet-400 to-cyan-300" />
-          Mohamed Tareq
+          Mohamad Tareq
         </p>
 
         {/* Primary discipline */}
@@ -56,15 +56,7 @@ export default function RobotSection() {
           Engineer
         </h1>
 
-        {/* Cursive Subheading */}
-        <p className="mt-4 mb-1 text-3xl font-normal tracking-wide text-slate-200 font-script drop-shadow-[0_4px_18px_rgba(15,23,42,0.8)] sm:text-4xl md:text-5xl">
-          machine learning
-        </p>
 
-        {/* Accent role */}
-        <p className="text-3xl font-normal tracking-wide text-cyan-300/90 font-script drop-shadow-[0_0_22px_rgba(34,211,238,0.35)] sm:text-4xl md:text-5xl">
-          Instructor
-        </p>
 
         {/* CV & Social Icons Row */}
         <div className="mt-8 flex flex-wrap items-center gap-5">

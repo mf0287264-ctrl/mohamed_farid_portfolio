@@ -28,27 +28,27 @@ export default function CareerExperienceSection() {
   const experiences: ExperienceItem[] = [
     {
       id: "exp-1",
-      role: "Freelancer Frontend Developer",
-      company: "Freelance",
-      date: "May 2025 - Present",
+      role: "Instructor – Digital Egypt Marvels Initiative",
+      company: "iSchool",
+      date: "June 2026 – Present",
       description:
-        "Delivered 25+ end-to-end web projects, including AI platforms and e-commerce stores, using React, Next.js, and Odoo. Focused on high-performance design and scalable solutions.",
+        "Taught Programming, AI, and Game Development through hands-on sessions. Guided students in projects, activities, and teamwork. Mentored young learners and supported their technical growth.",
     },
     {
       id: "exp-2",
-      role: "Frontend developer",
-      company: "Codule",
-      date: "Jan 2025 - Sep 2025",
+      role: "Generative & Agentic AI Trainee",
+      company: "DEPI round 4",
+      date: "December 2025 – June 2026",
       description:
-        "Developed responsive web applications, booking systems, and internal dashboards. Created reusable component libraries and optimized performance through advanced state management.",
+        "Trained in Generative AI, Transformers, Diffusion Models, and RAG systems. Worked on fine-tuning models and building autonomous AI agents.",
     },
     {
       id: "exp-3",
-      role: "AI & Frontend Engineer",
-      company: "Tech Innovation Lab",
-      date: "Jun 2024 - Dec 2024",
+      role: "IBM Data Science Trainee",
+      company: "DEPI round 2",
+      date: "October 2024 – June 2025",
       description:
-        "Built interactive 3D WebGL user interfaces, AI model integrations, and optimized web performance across cross-functional engineering teams.",
+        "Completed intensive training in Machine Learning, Deep Learning, and NLP. Built hands-on projects using Scikit-learn and TensorFlow. Applied data preprocessing, feature engineering, and model evaluation techniques.",
     },
   ];
 

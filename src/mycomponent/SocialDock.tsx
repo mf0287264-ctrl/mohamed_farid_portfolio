@@ -15,22 +15,22 @@ export default function SocialDock() {
   const socialLinks: SocialLink[] = [
     {
       name: "GitHub",
-      url: "https://github.com",
+      url: "https://github.com/MoTareq000",
       icon: <FaGithub className="w-5 h-5 text-white group-hover:text-cyan-300 transition-colors" />,
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/mohamad-tareq",
       icon: <FaLinkedin className="w-5 h-5 text-white group-hover:text-cyan-300 transition-colors" />,
     },
     {
       name: "WhatsApp",
-      url: "https://wa.me/201229140830",
+      url: "https://wa.me/201152419789",
       icon: <FaWhatsapp className="w-5 h-5 text-white group-hover:text-cyan-300 transition-colors" />,
     },
     {
       name: "Email",
-      url: "mailto:ragabahmed154@gmail.com",
+      url: "mailto:mohamadtareq954@gmail.com",
       icon: <FaEnvelope className="w-4.5 h-4.5 text-white group-hover:text-cyan-300 transition-colors" />,
     },
   ];

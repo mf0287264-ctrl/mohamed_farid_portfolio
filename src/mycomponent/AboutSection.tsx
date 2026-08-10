@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import tareqPic from "@/asstest/tareq.png";
+import tareqPic from "@/asstest/tareq.jpg";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -150,11 +150,7 @@ export default function AboutSection() {
               ref={p1Ref}
               className="text-lg sm:text-xl md:text-2xl font-medium text-slate-200 leading-relaxed font-outfit mb-12 max-w-2xl"
             >
-              With a passion for artificial intelligence, machine learning, and
-              interactive web engineering, I take AI projects from research and
-              ideation to full production launch, ensuring a seamless journey
-              that leaves a lasting positive impact on the digital landscape and
-              your business.
+              Last-year Artificial Intelligence student with hands-on experience in machine learning, deep learning, and end-to-end model deployment. Built and deployed production-ready ML systems. Strong in Python, data analysis, and applied ML, with experience teaching and mentoring peers.
             </p>
 
             {/* LOWER SECTION: ( ABOUT ME ) LABEL + GLOWING ORB ON LEFT, PARAGRAPHS ON RIGHT */}

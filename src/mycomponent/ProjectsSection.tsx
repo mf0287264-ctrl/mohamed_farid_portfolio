@@ -32,50 +32,26 @@ export default function ProjectsSection() {
     {
       id: "project-1",
       num: "01",
-      title: "AJMARKETING WEBSITE WITH AI & WHATSAPP AUTOMATION",
+      title: "EduGen – AI-Powered Adaptive Learning & Assessment System",
       subtitleTechString:
-        "Next.js & TypeScript & Tailwind CSS & OpenAI & Twilio WhatsApp API & Framer Motion & Matter.js & EmailJS",
-      tags: ["Next.js", "TypeScript", "2025"],
+        "Python & Machine Learning & AI Generation",
+      tags: ["AI", "Python", "ML"],
       description:
-        "Full-stack AI marketing application featuring automated customer lead scoring, conversational AI bots, and real-time WhatsApp API campaign automation.",
-      image: "/images/project1.jpg",
-      link: "https://github.com",
+        "AI platform for exam generation and automated grading. Generated MCQs and essays from course content. Used student data for adaptive learning and personalization. Improved student performance and reduced instructor workload.",
+      image: "/images/edugen.jpg",
+      link: "https://github.com/MoTareq000/EduGen",
     },
     {
       id: "project-2",
       num: "02",
-      title: "INTERACTIVE 3D WEBGL PORTFOLIO & ROBOT GRAPHICS",
+      title: "Sales-Forecasting-and-Optimization",
       subtitleTechString:
-        "Three.js & WebGL & GSAP & React Three Fiber & Tailwind CSS & Spline 3D & WebAudio",
-      tags: ["Three.js", "WebGL", "2025"],
+        "Python & Machine Learning & Scikit-learn & Regression",
+      tags: ["ML", "Python", "Regression"],
       description:
-        "Luxury 3D interactive portfolio featuring high-performance Spline WebGL robot graphics, particle starfields, and physics-driven micro-interactions.",
-      image: "/images/project2.jpg",
-      link: "https://github.com",
-    },
-    {
-      id: "project-3",
-      num: "03",
-      title: "PREDICTIVE ANALYTICS & MACHINE LEARNING DASHBOARD",
-      subtitleTechString:
-        "Python & TensorFlow & React & Recharts & FastAPI & Scikit-learn & Docker & Tailwind CSS",
-      tags: ["Python", "React", "2025"],
-      description:
-        "Real-time machine learning analytics suite monitoring predictive data streams, model confidence metrics, and interactive automated visualization charts.",
-      image: "/images/project3.jpg",
-      link: "https://github.com",
-    },
-    {
-      id: "project-4",
-      num: "04",
-      title: "AUTONOMOUS LLM WORKFLOW AGENT ORCHESTRATOR",
-      subtitleTechString:
-        "LangChain & OpenAI API & Vector DB & Next.js & Python & Redis & Tailwind CSS & Pinecone",
-      tags: ["LangChain", "Next.js", "2025"],
-      description:
-        "Autonomous multi-agent AI orchestration platform enabling business workflow automation, document RAG search, and human-in-the-loop task execution.",
-      image: "/images/project4.jpg",
-      link: "https://github.com",
+        "Built a sales forecasting system using Python and ML in a team of four. Analyzed historical sales data to extract insights and trends. Applied regression models for accurate sales prediction. Optimized inventory recommendations for better decision making.",
+      image: "/images/sales_forecast.jpg",
+      link: "https://github.com/MoTareq000/sales_forecasting-",
     },
   ];
 
@@ -83,11 +59,11 @@ export default function ProjectsSection() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Bi-Directional Digit Roll for 01 -> 02 -> 03 -> 04
+      // Bi-Directional Digit Roll for 01 -> 02
       const updateDigitStrip = (idx: number) => {
         if (!digitStripRef.current) return;
         gsap.to(digitStripRef.current, {
-          yPercent: -25 * idx, // 0 -> 0%, 1 -> -25%, 2 -> -50%, 3 -> -75%
+          yPercent: -50 * idx, // 0 -> 0%, 1 -> -50% (since we have 2 items now)
           duration: 0.45,
           ease: "power2.out",
           overwrite: "auto",
@@ -158,12 +134,6 @@ export default function ProjectsSection() {
                   </span>
                   <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
                     2
-                  </span>
-                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
-                    3
-                  </span>
-                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
-                    4
                   </span>
                 </div>
               </div>

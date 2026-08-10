@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${cinzel.variable} ${outfit.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col relative text-slate-100 bg-[#020208]">
+      <body suppressHydrationWarning className="min-h-full flex flex-col relative text-slate-100 bg-[#020208]">
         <CustomCursor />
         <SpaceBackground />
         {children}

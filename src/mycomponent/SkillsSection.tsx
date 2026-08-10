@@ -49,52 +49,30 @@ export default function SkillsSection() {
 
   const skillCategories: SkillCategory[] = [
     {
-      title: "AI & MACHINE LEARNING",
+      title: "LANGUAGES & LIBRARIES",
       skills: [
         { name: "Python", icon: <SiPython className="w-6 h-6 text-[#3776AB]" /> },
-        { name: "PyTorch", icon: <SiPytorch className="w-6 h-6 text-[#EE4C2C]" /> },
+        { name: "Pandas", icon: <SiPython className="w-6 h-6 text-[#150458]" /> },
+        { name: "NumPy", icon: <SiPython className="w-6 h-6 text-[#013243]" /> },
+        { name: "Scikit-learn", icon: <SiPython className="w-6 h-6 text-[#F7931E]" /> },
         { name: "TensorFlow", icon: <SiTensorflow className="w-6 h-6 text-[#FF6F00]" /> },
-        { name: "OpenAI API", icon: <FaBrain className="w-6 h-6 text-[#10A37F]" /> },
-        { name: "FastAPI", icon: <SiFastapi className="w-6 h-6 text-[#009688]" /> },
+        { name: "SQL", icon: <SiPostgresql className="w-6 h-6 text-[#4169E1]" /> },
       ],
     },
     {
-      title: "FRONTEND",
+      title: "AI EXPERTISE",
       skills: [
-        { name: "JavaScript", icon: <SiJavascript className="w-6 h-6 text-[#F7DF1E]" /> },
-        { name: "TypeScript", icon: <SiTypescript className="w-6 h-6 text-[#3178C6]" /> },
-        { name: "React", icon: <SiReact className="w-6 h-6 text-[#61DAFB]" /> },
-        { name: "Next.Js", icon: <SiNextdotjs className="w-6 h-6 text-white" /> },
-        { name: "Redux", icon: <SiRedux className="w-6 h-6 text-[#764ABC]" /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" /> },
-        { name: "Framer Motion", icon: <SiFramer className="w-6 h-6 text-[#0055FF]" /> },
-        { name: "Sass", icon: <SiSass className="w-6 h-6 text-[#CC6699]" /> },
-        { name: "Bootstrap", icon: <SiBootstrap className="w-6 h-6 text-[#7952B3]" /> },
+        { name: "Deep Learning", icon: <FaBrain className="w-6 h-6 text-[#FF4500]" /> },
+        { name: "NLP (RAG, Fine-tuning)", icon: <FaBrain className="w-6 h-6 text-[#10A37F]" /> },
+        { name: "Computer Vision", icon: <FaBrain className="w-6 h-6 text-[#0055FF]" /> },
+        { name: "Machine Learning", icon: <FaBrain className="w-6 h-6 text-[#FFD700]" /> },
       ],
     },
     {
-      title: "BACKEND",
+      title: "TOOLS & PROBLEM SOLVING",
       skills: [
-        { name: "Node.Js", icon: <SiNodedotjs className="w-6 h-6 text-[#339933]" /> },
-        { name: "NestJS", icon: <SiNestjs className="w-6 h-6 text-[#E0234E]" /> },
-        { name: "Express.Js", icon: <SiExpress className="w-6 h-6 text-white" /> },
-      ],
-    },
-    {
-      title: "DATABASE",
-      skills: [
-        { name: "MySQL", icon: <SiMysql className="w-6 h-6 text-[#4479A1]" /> },
-        { name: "PostgreSQL", icon: <SiPostgresql className="w-6 h-6 text-[#4169E1]" /> },
-        { name: "MongoDB", icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> },
-        { name: "Prisma", icon: <SiPrisma className="w-6 h-6 text-white" /> },
-      ],
-    },
-    {
-      title: "TOOLS",
-      skills: [
-        { name: "Git", icon: <SiGit className="w-6 h-6 text-[#F05032]" /> },
-        { name: "Docker", icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
-        { name: "AWS", icon: <FaAws className="w-6 h-6 text-[#FF9900]" /> },
+        { name: "Git & Github", icon: <SiGit className="w-6 h-6 text-[#F05032]" /> },
+        { name: "Problem Solving", icon: <FaBrain className="w-6 h-6 text-[#8B008B]" /> },
       ],
     },
   ];
