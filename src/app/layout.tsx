@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Caveat, Cinzel, Outfit } from "next/font/google";
 import SpaceBackground from "@/components/SpaceBackground";
 import CustomCursor from "@/components/CustomCursor";
+import Preloader from "@/components/Preloader";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
@@ -97,6 +98,7 @@ export default function RootLayout({
             },
           }}
         />
+        <Preloader />
         <CustomCursor />
         <SpaceBackground />
         {children}
