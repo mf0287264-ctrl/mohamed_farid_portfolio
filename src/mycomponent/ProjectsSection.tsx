@@ -116,7 +116,7 @@ export default function ProjectsSection() {
           {/* LEFT COLUMN: INTEGRATED STICKY HEADER & ROCK-SOLID NUMBER REEL */}
           <div
             ref={stickyNumberRef}
-            className="lg:col-span-5 sticky top-28 self-start flex flex-col py-4 z-30 select-none"
+            className="lg:col-span-5 relative lg:sticky lg:top-28 self-start flex flex-col py-4 z-10 lg:z-30 select-none"
           >
             {/* SECTION HEADER INTEGRATED INSIDE STICKY COLUMN */}
             <div className="mb-6">
@@ -131,33 +131,33 @@ export default function ProjectsSection() {
             {/* HUGE NUMBER WITH VERTICAL DIGIT REEL */}
             <div className="relative inline-flex items-baseline font-outfit font-extrabold tracking-tighter text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.1)]">
               {/* FIXED "0" */}
-              <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100">
+              <span className="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[13rem] leading-none text-slate-100">
                 0
               </span>
 
               {/* VERTICAL ROLLING DIGIT REEL STRIP ("1" -> "2" -> "3") */}
-              <div className="relative inline-block overflow-hidden h-[7rem] sm:h-[10rem] md:h-[13rem] w-[4.5rem] sm:w-[6.5rem] md:w-[8.5rem]">
+              <div className="relative inline-block overflow-hidden h-[5rem] sm:h-[8rem] md:h-[11rem] lg:h-[13rem] w-[3.2rem] sm:w-[5rem] md:w-[7rem] lg:w-[8.5rem]">
                 <div
                   ref={digitStripRef}
                   className="flex flex-col items-center w-full will-change-transform"
                 >
-                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
+                  <span className="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[13rem] leading-none text-slate-100 h-[5rem] sm:h-[8rem] md:h-[11rem] lg:h-[13rem] flex items-center justify-center">
                     1
                   </span>
-                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
+                  <span className="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[13rem] leading-none text-slate-100 h-[5rem] sm:h-[8rem] md:h-[11rem] lg:h-[13rem] flex items-center justify-center">
                     2
                   </span>
-                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
+                  <span className="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[13rem] leading-none text-slate-100 h-[5rem] sm:h-[8rem] md:h-[11rem] lg:h-[13rem] flex items-center justify-center">
                     3
                   </span>
                 </div>
               </div>
 
               {/* FIXED DOT "." WITH GLOWING CYAN ACCENT */}
-              <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 relative">
+              <span className="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[13rem] leading-none text-slate-100 relative">
                 .
                 {/* Glowing Accent Dot Inside Period */}
-                <span className="absolute left-[30%] top-[45%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-cyan-400 shadow-[0_0_35px_rgba(34,211,238,1)] pointer-events-none animate-pulse" />
+                <span className="absolute left-[30%] top-[45%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-cyan-400 shadow-[0_0_35px_rgba(34,211,238,1)] pointer-events-none animate-pulse" />
               </span>
             </div>
 

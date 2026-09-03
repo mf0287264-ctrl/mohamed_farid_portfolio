@@ -227,8 +227,8 @@ export default function CareerExperienceSection() {
           ref={timelineTrackRef}
           className="relative flex flex-col gap-24 sm:gap-32"
         >
-          {/* SINGLE CONTINUOUS VERTICAL CONNECTING LINE AT EXACT 54.16% CENTER COLUMN GRID */}
-          <div className="hidden md:block absolute left-[54.166%] top-6 bottom-6 w-[2px] -translate-x-1/2 z-10 pointer-events-none">
+          {/* SINGLE CONTINUOUS VERTICAL CONNECTING LINE (LEFT-3 ON MOBILE, CENTER ON DESKTOP) */}
+          <div className="absolute left-3 md:left-[54.166%] top-6 bottom-6 w-[2px] -translate-x-1/2 z-10 pointer-events-none">
             <div className="relative h-full w-full bg-slate-800/80">
               {/* Moving Animated Gradient Line Progress (Cyan -> Sky -> Indigo) */}
               <div
@@ -244,7 +244,7 @@ export default function CareerExperienceSection() {
               ref={(el) => {
                 itemRefs.current[index] = el;
               }}
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center transition-all duration-300 group relative"
+              className="pl-8 md:pl-0 grid grid-cols-1 md:grid-cols-12 gap-8 items-center transition-all duration-300 group relative"
             >
               {/* COLUMN 1 & 2: ROLE & DATE */}
               <div className="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-baseline">
@@ -266,8 +266,8 @@ export default function CareerExperienceSection() {
                 </div>
               </div>
 
-              {/* COLUMN 3: SPACER FOR VERTICAL CONNECTING LINE WITH NODE DOT */}
-              <div className="hidden md:flex md:col-span-1 items-center justify-center relative z-20">
+              {/* COLUMN 3: NODE DOT (LEFT-3 TOP-2 ON MOBILE, CENTER COLUMN ON DESKTOP) */}
+              <div className="absolute left-3 top-2 -translate-x-1/2 md:translate-x-0 md:relative md:left-0 md:top-0 md:col-span-1 flex items-center justify-center z-20">
                 <div
                   ref={(el) => {
                     dotRefs.current[index] = el;
