@@ -66,20 +66,21 @@ export default function WhatIDoSection() {
         }
       }
 
-      // 3. GSAP SCROLLTRIGGER PINNED ARCHIVE TIMELINE ANIMATION
+      // 3. GSAP SCROLLTRIGGER PINNED ARCHIVE TIMELINE ANIMATION (Desktop only)
       if (
         stackContainerRef.current &&
         section1Ref.current &&
         section2Ref.current &&
         section3Ref.current
       ) {
+        const isMobile = window.innerWidth < 768;
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: stackContainerRef.current,
-            start: "top top+=100",
-            end: "+=160%",
-            pin: true,
-            pinSpacing: true,
+            start: isMobile ? "top 85%" : "top top+=100",
+            end: isMobile ? "+=100%" : "+=160%",
+            pin: !isMobile,
+            pinSpacing: !isMobile,
             scrub: 0.5,
           },
         });

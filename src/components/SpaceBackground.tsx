@@ -22,8 +22,14 @@ export default function SpaceBackground() {
     camera.position.set(0, 0, 600);
     camera.lookAt(0, 0, 0);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    const isMobile = window.innerWidth < 768;
+
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !isMobile,
+      alpha: false,
+      powerPreference: "high-performance",
+    });
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x04040c, 1);
     container.appendChild(renderer.domElement);
@@ -47,7 +53,7 @@ export default function SpaceBackground() {
     };
 
     // --- DOWNWARD FALLING STARS ---
-    const STAR_COUNT = 350;
+    const STAR_COUNT = isMobile ? 80 : 350;
     const starGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(STAR_COUNT * 3);
     const speeds = new Float32Array(STAR_COUNT);

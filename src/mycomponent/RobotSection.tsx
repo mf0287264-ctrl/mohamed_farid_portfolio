@@ -99,8 +99,8 @@ export default function RobotSection() {
         </div>
       </div>
 
-      {/* FULL-SECTION SPLINE 3D CANVAS */}
-      <div className="absolute inset-0 w-full h-full pointer-events-auto z-10 overflow-hidden bg-transparent">
+      {/* FULL-SECTION SPLINE 3D CANVAS (Desktop / Tablet only to prevent mobile WebGL GPU lag) */}
+      <div className="hidden md:block absolute inset-0 w-full h-full pointer-events-auto z-10 overflow-hidden bg-transparent">
         <div
           className={`w-full h-full flex items-center justify-center bg-transparent transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu will-change-transform ${
             isLoaded ? "opacity-100" : "opacity-0"
