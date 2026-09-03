@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Caveat, Cinzel, Outfit } from "next/font/google";
 import SpaceBackground from "@/components/SpaceBackground";
 import CustomCursor from "@/components/CustomCursor";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -96,6 +97,7 @@ export default function RootLayout({
         <CustomCursor />
         <SpaceBackground />
         {children}
+        <Analytics />
       </body>
     </html>
   );
