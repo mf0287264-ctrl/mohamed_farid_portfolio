@@ -13,19 +13,28 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 export default function RobotSection() {
   const [isIntro, setIsIntro] = useState(true);
   const [showScroll, setShowScroll] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Transition intro pose and reveal scroll indicator after 4 seconds
-  useEffect(() => {
-    const introTimer = setTimeout(() => {
+  const handleSplineLoad = () => {
+    setIsLoaded(true);
+    // Smoothly trigger intro pose once GPU compilation is complete
+    setTimeout(() => {
       setIsIntro(false);
-    }, 1200);
+    }, 100);
+  };
+
+  // Fallback timer in case network delays Spline loading, and scroll indicator timer
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      setIsIntro(false);
+    }, 2500);
 
     const scrollTimer = setTimeout(() => {
       setShowScroll(true);
     }, 4000);
 
     return () => {
-      clearTimeout(introTimer);
+      clearTimeout(fallbackTimer);
       clearTimeout(scrollTimer);
     };
   }, []);
@@ -34,7 +43,7 @@ export default function RobotSection() {
     <section className="relative w-full min-h-screen flex items-center justify-between px-8 md:px-20 pt-28 pb-20 overflow-hidden z-10 select-none">
       {/* LEFT CONTENT: Full Stack Developer Hero Text */}
       <div
-        className={`relative z-20 flex flex-col items-start justify-center max-w-xl pointer-events-none transition-all duration-1000 ease-out ${
+        className={`relative z-20 flex flex-col items-start justify-center max-w-xl pointer-events-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu ${
           isIntro
             ? "opacity-0 -translate-x-10"
             : "opacity-100 translate-x-0 delay-100"
@@ -93,7 +102,9 @@ export default function RobotSection() {
       {/* FULL-SECTION SPLINE 3D CANVAS */}
       <div className="absolute inset-0 w-full h-full pointer-events-auto z-10 overflow-hidden bg-transparent">
         <div
-          className="w-full h-full flex items-center justify-center bg-transparent transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform"
+          className={`w-full h-full flex items-center justify-center bg-transparent transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu will-change-transform ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             transform: isIntro
               ? "translate3d(-18vw, 0, 0)"
@@ -102,6 +113,7 @@ export default function RobotSection() {
         >
           <Spline
             scene="https://prod.spline.design/ocvmdotHwhUPI7kE/scene.splinecode"
+            onLoad={handleSplineLoad}
             className="w-full h-full bg-transparent scale-100"
           />
         </div>
