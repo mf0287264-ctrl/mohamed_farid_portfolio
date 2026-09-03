@@ -28,27 +28,35 @@ export default function CareerExperienceSection() {
   const experiences: ExperienceItem[] = [
     {
       id: "exp-1",
-      role: "Instructor – Digital Egypt Marvels Initiative",
-      company: "iSchool",
-      date: "June 2026 – Present",
+      role: "Bachelor's Degree in Computer Science",
+      company: "October 6 University | Major: CS | GPA: 3.51",
+      date: "2023 – 2027",
       description:
-        "Taught Programming, AI, and Game Development through hands-on sessions. Guided students in projects, activities, and teamwork. Mentored young learners and supported their technical growth.",
+        "Computer Science student focused on Full-Stack Web Development, Data Structures, Algorithms, Software Engineering, Cybersecurity, and Cloud concepts.",
     },
     {
       id: "exp-2",
-      role: "Generative & Agentic AI Trainee",
-      company: "DEPI round 4",
-      date: "December 2025 – June 2026",
+      role: "Full Stack Development",
+      company: "Route Academy",
+      date: "2025 – 2026",
       description:
-        "Trained in Generative AI, Transformers, Diffusion Models, and RAG systems. Worked on fine-tuning models and building autonomous AI agents.",
+        "Comprehensive full-stack development covering HTML, CSS, JavaScript, React, TypeScript, Next.js, Node.js, Express.js, and modern web architectures.",
     },
     {
       id: "exp-3",
-      role: "IBM Data Science Trainee",
-      company: "DEPI round 2",
-      date: "October 2024 – June 2025",
+      role: "Cybersecurity Training",
+      company: "NTI (National Telecommunication Institute)",
+      date: "2025",
       description:
-        "Completed intensive training in Machine Learning, Deep Learning, and NLP. Built hands-on projects using Scikit-learn and TensorFlow. Applied data preprocessing, feature engineering, and model evaluation techniques.",
+        "Intensive training in Network Security, Firewalls, IDS/IPS, Ethical Hacking, Vulnerability Testing, Email Security, Phishing Awareness, Linux, and Virtualization.",
+    },
+    {
+      id: "exp-4",
+      role: "DevOps Training",
+      company: "DEPI (Digital Egypt Pioneers Initiative)",
+      date: "2026",
+      description:
+        "Specialized training in Docker containerization, CI/CD pipelines, GitHub Actions automation, and modern infrastructure practices.",
     },
   ];
 
@@ -201,7 +209,7 @@ export default function CareerExperienceSection() {
         {/* SECTION HEADER WITH ANIMATED FAN ICON */}
         <div ref={headerRef} className="mb-20">
           <span className="mb-3 block text-xs font-mono tracking-[0.3em] text-cyan-300 uppercase">
-            ( CAREER )
+            ( EDUCATION &amp; TRAINING )
           </span>
 
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight font-outfit text-white flex items-center gap-4 sm:gap-6 flex-wrap">
@@ -209,7 +217,7 @@ export default function CareerExperienceSection() {
             <FaFan className="w-8 h-8 sm:w-12 sm:h-12 text-cyan-300 animate-spin [animation-duration:3s] drop-shadow-[0_0_18px_rgba(34,211,238,0.8)] shrink-0 inline-block" />
 
             <span>
-              Career <span className="text-cyan-300">Experience</span>
+              Education &amp; <span className="text-cyan-300">Training</span>
             </span>
           </h2>
         </div>

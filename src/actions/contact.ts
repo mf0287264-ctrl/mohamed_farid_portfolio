@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { supabase } from "../lib/supabase";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const notificationEmail = process.env.NOTIFICATION_EMAIL || "mohamadtareq954@gmail.com";
+const notificationEmail = process.env.NOTIFICATION_EMAIL || "mohamedfarid.dev@gmail.com";
 
 export async function submitContactForm(email: string, message: string) {
   try {

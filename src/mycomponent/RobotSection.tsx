@@ -43,24 +43,29 @@ export default function RobotSection() {
         {/* Customer name */}
         <p className="mb-4 flex items-center gap-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[0.28em] text-slate-300 uppercase font-outfit">
           <span className="h-px w-8 bg-gradient-to-r from-violet-400 to-cyan-300" />
-          Mohamad Tareq
+          Mohamed Farid
         </p>
 
         {/* Primary discipline */}
-        <h2 className="mb-1 text-6xl font-black leading-[0.8] tracking-[-0.07em] text-cyan-300 uppercase font-outfit drop-shadow-[0_0_26px_rgba(34,211,238,0.35)] sm:text-7xl md:text-8xl">
-          AI
+        <h2 className="mb-1 text-5xl font-black leading-[0.8] tracking-[-0.05em] text-cyan-300 uppercase font-outfit drop-shadow-[0_0_26px_rgba(34,211,238,0.35)] sm:text-7xl md:text-8xl">
+          SOFTWARE
         </h2>
 
         {/* Primary title */}
         <h1 className="text-5xl font-black uppercase leading-[0.85] tracking-[-0.055em] text-gradient font-outfit drop-shadow-[0_12px_30px_rgba(56,189,248,0.18)] sm:text-7xl md:text-8xl">
-          Engineer
+          ENGINEER
         </h1>
+
+        {/* Subtitle */}
+        <p className="mt-4 text-xs sm:text-sm font-mono tracking-widest text-slate-400 uppercase">
+          Computer Science Student &amp; Full-Stack Developer
+        </p>
 
         {/* CV & Social Icons Row */}
         <div className="mt-8 flex flex-wrap items-center gap-5">
           <a
-            href="/cv/MohamadTareq-AiEngineer.pdf"
-            download="MohamadTareq-AiEngineer.pdf"
+            href="/cv/MohamedFarid-SoftwareEngineer.pdf"
+            download="MohamedFarid-SoftwareEngineer.pdf"
             className="group pointer-events-auto inline-flex items-center gap-3 rounded-full border border-cyan-300/50 bg-cyan-300/10 px-6 py-3 text-sm font-bold tracking-[0.16em] text-cyan-100 uppercase font-outfit shadow-[0_0_24px_rgba(34,211,238,0.16)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-200 hover:bg-cyan-300 hover:text-slate-950 hover:shadow-[0_0_30px_rgba(34,211,238,0.42)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
           >
             Download CV

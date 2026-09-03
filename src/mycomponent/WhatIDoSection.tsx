@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaBrain, FaRobot, FaMicrochip } from "react-icons/fa6";
+import { FaCode, FaShieldHalved, FaServer } from "react-icons/fa6";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -35,8 +35,8 @@ export default function WhatIDoSection() {
               stagger: 0.1,
               scrollTrigger: {
                 trigger: titleRef.current,
-                start: "top 85%",
-                end: "top 45%",
+                start: "top 95%",
+                end: "top 55%",
                 scrub: true,
               },
             }
@@ -57,8 +57,8 @@ export default function WhatIDoSection() {
               stagger: 0.08,
               scrollTrigger: {
                 trigger: textRef.current,
-                start: "top 80%",
-                end: "bottom 35%",
+                start: "top 90%",
+                end: "bottom 45%",
                 scrub: true,
               },
             }
@@ -104,7 +104,7 @@ export default function WhatIDoSection() {
   }, []);
 
   const paragraphText =
-    "Intelligent AI solutions don't happen by chance, they are engineered with precision. I build scalable machine learning models, autonomous AI agents, and seamless WebGL/Next.js interfaces that bridge raw intelligence with effortless user experiences.";
+    "High-performance applications don't happen by chance, they are engineered with precision. I build scalable full-stack web applications, secure system environments, and automated DevOps workflows that combine clean architecture with effortless user experiences.";
   const wordsArray = paragraphText.split(" ");
   const titleWords = ["WHAT", "I", "DO", "/"];
 
@@ -173,7 +173,7 @@ export default function WhatIDoSection() {
         ref={stackContainerRef}
         className="relative w-full h-[85vh] overflow-hidden"
       >
-        {/* SECTION 1: AI & Machine Learning (Fixed at Top) */}
+        {/* SECTION 1: Full-Stack Web Development */}
         <div
           ref={section1Ref}
           className="absolute inset-x-0 top-0 z-10 w-full h-full bg-slate-950/85 border-t border-b border-cyan-400/25 shadow-2xl backdrop-blur-md px-6 md:px-20 py-6 sm:py-8 flex flex-col justify-start pt-8"
@@ -186,25 +186,25 @@ export default function WhatIDoSection() {
                   ( 01 )
                 </span>
                 <h3 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white font-outfit tracking-tight">
-                  AI & Machine Learning
+                  Full-Stack Development
                 </h3>
               </div>
-              <FaBrain className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-300 animate-icon-float" />
+              <FaCode className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-300 animate-icon-float" />
             </div>
 
             {/* SECTION BODY CONTENT */}
             <div className="grid md:grid-cols-12 gap-6 items-start pt-1">
               <div className="md:col-span-8 flex flex-col gap-4">
                 <p className="text-xs sm:text-sm md:text-base text-slate-300/90 font-light leading-relaxed font-outfit max-w-3xl">
-                  I design, train, and deploy intelligent AI models and neural architectures. From custom predictive pipelines to real-time WebGL AI interfaces, I create high-performance AI solutions tailored to complex user needs.
+                  I build responsive, high-performance web applications using React, Next.js, Node.js, Express.js, TypeScript, SQL, and MongoDB. From dynamic frontend components to scalable REST API architectures.
                 </p>
 
                 {/* FEATURES LIST WITH CYAN NUMBERS */}
                 <div className="flex flex-col gap-3 pt-3 border-t border-cyan-400/20 max-w-xl">
                   {[
-                    { num: "01", name: "Custom ML & Neural Models" },
-                    { num: "02", name: "Computer Vision & NLP" },
-                    { num: "03", name: "Predictive AI Systems" },
+                    { num: "01", name: "React & Next.js Applications" },
+                    { num: "02", name: "Node.js & Express REST APIs" },
+                    { num: "03", name: "SQL & MongoDB Databases" },
                   ].map((item) => (
                     <div
                       key={item.num}
@@ -229,7 +229,7 @@ export default function WhatIDoSection() {
           </div>
         </div>
 
-        {/* SECTION 2: LLMs & Agentic AI (Animates Moving Up from Down to Up via GSAP Timeline) */}
+        {/* SECTION 2: Cybersecurity & Networking */}
         <div
           ref={section2Ref}
           className="absolute inset-x-0 top-16 md:top-20 z-20 w-full h-full bg-slate-950/85 border-t border-b border-cyan-400/25 shadow-2xl backdrop-blur-md px-6 md:px-20 py-6 sm:py-8 flex flex-col justify-start pt-8"
@@ -242,25 +242,25 @@ export default function WhatIDoSection() {
                   ( 02 )
                 </span>
                 <h3 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white font-outfit tracking-tight">
-                  LLMs & Agentic AI
+                  Cybersecurity &amp; Networking
                 </h3>
               </div>
-              <FaRobot className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-300 animate-icon-spin" />
+              <FaShieldHalved className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-300 animate-icon-spin" />
             </div>
 
             {/* SECTION BODY CONTENT */}
             <div className="grid md:grid-cols-12 gap-6 items-start pt-1">
               <div className="md:col-span-8 flex flex-col gap-4">
                 <p className="text-xs sm:text-sm md:text-base text-slate-300/90 font-light leading-relaxed font-outfit max-w-3xl">
-                  I build autonomous AI agents, multi-agent workflows, and RAG (Retrieval-Augmented Generation) systems. I integrate state-of-the-art LLMs (OpenAI, Gemini, Claude, Llama) with full-stack web applications for smart automation.
+                  I design and analyze security solutions including phishing simulation platforms, vulnerability assessments, network security controls, firewalls, IDS/IPS, and Linux system administration.
                 </p>
 
                 {/* FEATURES LIST WITH CYAN NUMBERS */}
                 <div className="flex flex-col gap-3 pt-3 border-t border-cyan-400/20 max-w-xl">
                   {[
-                    { num: "01", name: "Autonomous AI Agents" },
-                    { num: "02", name: "RAG & Knowledge Bases" },
-                    { num: "03", name: "Prompt & Pipeline Engineering" },
+                    { num: "01", name: "Phishing Simulation & Awareness" },
+                    { num: "02", name: "Vulnerability & Security Testing" },
+                    { num: "03", name: "Network Security & Firewalls" },
                   ].map((item) => (
                     <div
                       key={item.num}
@@ -285,7 +285,7 @@ export default function WhatIDoSection() {
           </div>
         </div>
 
-        {/* SECTION 3: AI System Optimization (Animates Moving Up from Down to Up via GSAP Timeline) */}
+        {/* SECTION 3: DevOps & Cloud */}
         <div
           ref={section3Ref}
           className="absolute inset-x-0 top-32 md:top-36 z-30 w-full h-full bg-slate-950/85 border-t border-b border-cyan-400/25 shadow-2xl backdrop-blur-md px-6 md:px-20 py-6 sm:py-8 flex flex-col justify-start pt-8"
@@ -298,25 +298,25 @@ export default function WhatIDoSection() {
                   ( 03 )
                 </span>
                 <h3 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white font-outfit tracking-tight">
-                  AI System Optimization
+                  DevOps &amp; Infrastructure
                 </h3>
               </div>
-              <FaMicrochip className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-300 animate-icon-orbit" />
+              <FaServer className="w-7 h-7 sm:w-9 sm:h-9 text-cyan-300 animate-icon-orbit" />
             </div>
 
             {/* SECTION BODY CONTENT */}
             <div className="grid md:grid-cols-12 gap-6 items-start pt-1">
               <div className="md:col-span-8 flex flex-col gap-4">
                 <p className="text-xs sm:text-sm md:text-base text-slate-300/90 font-light leading-relaxed font-outfit max-w-3xl">
-                  AI performance and low-latency response times are vital. I optimize inference speed, fine-tune open-weight models, implement vector databases (Pinecone, Qdrant), and build edge-ready AI integrations.
+                  I set up continuous integration and delivery pipelines, containerize applications with Docker, manage GitHub Actions workflows, and apply cloud computing concepts and Linux system administration.
                 </p>
 
                 {/* FEATURES LIST WITH CYAN NUMBERS */}
                 <div className="flex flex-col gap-3 pt-3 border-t border-cyan-400/20 max-w-xl">
                   {[
-                    { num: "01", name: "Fast Model Inference" },
-                    { num: "02", name: "Vector Databases & Embeddings" },
-                    { num: "03", name: "Edge AI & Full-Stack Integration" },
+                    { num: "01", name: "Docker & Containerization" },
+                    { num: "02", name: "CI/CD & GitHub Actions" },
+                    { num: "03", name: "Cloud Concepts & Linux SysAdmin" },
                   ].map((item) => (
                     <div
                       key={item.num}

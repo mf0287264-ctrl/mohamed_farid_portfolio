@@ -242,10 +242,10 @@ export default function ContactSection() {
                     EMAIL ME
                   </span>
                   <a
-                    href="mailto:mohamadtareq954@gmail.com"
+                    href="mailto:mohamedfarid.dev@gmail.com"
                     className="text-base sm:text-lg font-semibold text-white font-outfit hover:text-cyan-300 transition-colors"
                   >
-                    mohamadtareq954@gmail.com
+                    mohamedfarid.dev@gmail.com
                   </a>
                 </div>
               </div>
@@ -257,15 +257,15 @@ export default function ContactSection() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-mono tracking-widest text-slate-400 uppercase">
-                    WHATSAPP
+                    PHONE / WHATSAPP
                   </span>
                   <a
-                    href="https://wa.me/201152419789"
+                    href="https://wa.me/201066834266"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-base sm:text-lg font-semibold text-white font-outfit hover:text-cyan-300 transition-colors"
                   >
-                    +201152419789
+                    01066834266
                   </a>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export default function ContactSection() {
                     LOCATION
                   </span>
                   <span className="text-base sm:text-lg font-semibold text-white font-outfit">
-                    Giza, Egypt
+                    6-October, Egypt
                   </span>
                 </div>
               </div>

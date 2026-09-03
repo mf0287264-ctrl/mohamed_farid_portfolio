@@ -52,10 +52,10 @@ export default function Navbar() {
           className="group relative inline-block overflow-hidden font-script italic text-2xl sm:text-3xl font-bold tracking-widest uppercase shrink-0 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)] py-1 px-1.5"
         >
           <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-[125%] text-white pr-2">
-            MOHAMAD TAREQ
+            MOHAMED FARID
           </span>
           <span className="block absolute top-1 left-0 transition-transform duration-300 ease-out translate-y-[125%] group-hover:translate-y-0 text-cyan-300 pr-2">
-            MOHAMAD TAREQ
+            MOHAMED FARID
           </span>
         </a>
 

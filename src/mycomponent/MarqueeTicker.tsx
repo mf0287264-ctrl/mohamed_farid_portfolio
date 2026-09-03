@@ -4,11 +4,11 @@ import React from "react";
 
 export default function MarqueeTicker() {
   const items = [
-    "AI Engineer",
-    "Machine Learning Specialist",
-    "AI Engineer",
+    "Software Engineer",
+    "Full-Stack Developer",
+    "Software Engineer",
 
-    "Machine Learning Specialist",
+    "Full-Stack Developer",
   ];
 
   // 4-Pointed Star SVG matching your reference screenshot exactly

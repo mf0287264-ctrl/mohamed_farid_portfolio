@@ -32,26 +32,38 @@ export default function ProjectsSection() {
     {
       id: "project-1",
       num: "01",
-      title: "EduGen – AI-Powered Adaptive Learning & Assessment System",
+      title: "E-Commerce Web Application",
       subtitleTechString:
-        "Python & Machine Learning & AI Generation",
-      tags: ["AI", "Python", "ML"],
+        "React & Next.js & TypeScript & Tailwind CSS & REST APIs & Auth & Cart/Wishlist",
+      tags: ["React", "TypeScript", "Tailwind"],
       description:
-        "AI platform for exam generation and automated grading. Generated MCQs and essays from course content. Used student data for adaptive learning and personalization. Improved student performance and reduced instructor workload.",
-      image: "/images/edugen.jpg",
-      link: "https://github.com/MoTareq000/EduGen",
+        "Built a complete e-commerce web application with product browsing, shopping cart functionality, checkout flow, dynamic UI components, and a focus on performance, usability, and clean architecture.",
+      image: "/images/project1.jpg",
+      link: "https://freshcart-taupe.vercel.app/",
     },
     {
       id: "project-2",
       num: "02",
-      title: "Sales-Forecasting-and-Optimization",
+      title: "Social Media Web Application",
       subtitleTechString:
-        "Python & Machine Learning & Scikit-learn & Regression",
-      tags: ["ML", "Python", "Regression"],
+        "React & JavaScript / TypeScript & React Router & React Query & REST APIs",
+      tags: ["React", "REST APIs", "React Query"],
       description:
-        "Built a sales forecasting system using Python and ML in a team of four. Analyzed historical sales data to extract insights and trends. Applied regression models for accurate sales prediction. Optimized inventory recommendations for better decision making.",
-      image: "/images/sales_forecast.jpg",
-      link: "https://github.com/MoTareq000/sales_forecasting-",
+        "Developed a full-featured social media web application with user authentication, posts, likes, comments, profile management, and a responsive interactive user interface.",
+      image: "/images/project2.jpg",
+      link: "https://social-app-sigma-bay.vercel.app/",
+    },
+    {
+      id: "project-3",
+      num: "03",
+      title: "PhishShield — Phishing Simulation Platform",
+      subtitleTechString:
+        "Cybersecurity & Phishing Simulation & Security Awareness & Secure System Design",
+      tags: ["Cybersecurity", "Phishing", "Security"],
+      description:
+        "Created a security-focused platform designed to simulate phishing attacks for training and awareness purposes. The project focuses on cybersecurity concepts, user behavior analysis, and secure system design.",
+      image: "/images/project3.jpg",
+      link: "",
     },
   ];
 
@@ -59,11 +71,11 @@ export default function ProjectsSection() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Bi-Directional Digit Roll for 01 -> 02
+      // Bi-Directional Digit Roll for 01 -> 02 -> 03
       const updateDigitStrip = (idx: number) => {
         if (!digitStripRef.current) return;
         gsap.to(digitStripRef.current, {
-          yPercent: -50 * idx, // 0 -> 0%, 1 -> -50% (since we have 2 items now)
+          yPercent: -(100 / 3) * idx, // 0 -> 0%, 1 -> -33.33%, 2 -> -66.66%
           duration: 0.45,
           ease: "power2.out",
           overwrite: "auto",
@@ -123,7 +135,7 @@ export default function ProjectsSection() {
                 0
               </span>
 
-              {/* VERTICAL ROLLING DIGIT REEL STRIP ("1" -> "2" -> "3" -> "4") */}
+              {/* VERTICAL ROLLING DIGIT REEL STRIP ("1" -> "2" -> "3") */}
               <div className="relative inline-block overflow-hidden h-[7rem] sm:h-[10rem] md:h-[13rem] w-[4.5rem] sm:w-[6.5rem] md:w-[8.5rem]">
                 <div
                   ref={digitStripRef}
@@ -134,6 +146,9 @@ export default function ProjectsSection() {
                   </span>
                   <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
                     2
+                  </span>
+                  <span className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-none text-slate-100 h-[7rem] sm:h-[10rem] md:h-[13rem] flex items-center justify-center">
+                    3
                   </span>
                 </div>
               </div>
@@ -176,15 +191,17 @@ export default function ProjectsSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
 
                   {/* Top Right Live Preview Button */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 w-12 h-12 rounded-full bg-slate-950/90 border border-cyan-400/40 text-white flex items-center justify-center backdrop-blur-md shadow-lg hover:scale-110 hover:bg-cyan-400 hover:text-slate-950 transition-all duration-300 z-10"
-                    aria-label={`View ${project.title}`}
-                  >
-                    <HiArrowUpRight className="w-6 h-6" />
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 w-12 h-12 rounded-full bg-slate-950/90 border border-cyan-400/40 text-white flex items-center justify-center backdrop-blur-md shadow-lg hover:scale-110 hover:bg-cyan-400 hover:text-slate-950 transition-all duration-300 z-10"
+                      aria-label={`View ${project.title}`}
+                    >
+                      <HiArrowUpRight className="w-6 h-6" />
+                    </a>
+                  )}
                 </div>
 
                 {/* DETAILS DIRECTLY UNDER THE IMAGE */}

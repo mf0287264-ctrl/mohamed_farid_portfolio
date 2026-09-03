@@ -4,30 +4,39 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
+  SiHtml5,
+  SiCss,
   SiJavascript,
   SiTypescript,
   SiReact,
   SiNextdotjs,
-  SiRedux,
   SiTailwindcss,
-  SiFramer,
-  SiSass,
-  SiBootstrap,
   SiNodedotjs,
-  SiNestjs,
   SiExpress,
-  SiPython,
-  SiFastapi,
-  SiMysql,
   SiPostgresql,
   SiMongodb,
-  SiPrisma,
-  SiGit,
+  SiSupabase,
+  SiLinux,
   SiDocker,
-  SiPytorch,
-  SiTensorflow,
+  SiGithubactions,
+  SiCplusplus,
+  SiPython,
+  SiGit,
+  SiGithub,
 } from "react-icons/si";
-import { FaAws, FaBrain, FaFan } from "react-icons/fa";
+import {
+  FaServer,
+  FaShieldHalved,
+  FaLock,
+  FaTerminal,
+  FaUserSecret,
+  FaEnvelope,
+  FaNetworkWired,
+  FaCloud,
+  FaDesktop,
+  FaJava,
+  FaFan,
+} from "react-icons/fa6";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -49,30 +58,62 @@ export default function SkillsSection() {
 
   const skillCategories: SkillCategory[] = [
     {
-      title: "LANGUAGES & LIBRARIES",
+      title: "FRONTEND",
       skills: [
-        { name: "Python", icon: <SiPython className="w-6 h-6 text-[#3776AB]" /> },
-        { name: "Pandas", icon: <SiPython className="w-6 h-6 text-[#150458]" /> },
-        { name: "NumPy", icon: <SiPython className="w-6 h-6 text-[#013243]" /> },
-        { name: "Scikit-learn", icon: <SiPython className="w-6 h-6 text-[#F7931E]" /> },
-        { name: "TensorFlow", icon: <SiTensorflow className="w-6 h-6 text-[#FF6F00]" /> },
+        { name: "HTML", icon: <SiHtml5 className="w-6 h-6 text-[#E34F26]" /> },
+        { name: "CSS", icon: <SiCss className="w-6 h-6 text-[#1572B6]" /> },
+        { name: "JavaScript", icon: <SiJavascript className="w-6 h-6 text-[#F7DF1E]" /> },
+        { name: "TypeScript", icon: <SiTypescript className="w-6 h-6 text-[#3178C6]" /> },
+        { name: "React", icon: <SiReact className="w-6 h-6 text-[#61DAFB]" /> },
+        { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6 text-white" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" /> },
+      ],
+    },
+    {
+      title: "BACKEND & DATABASES",
+      skills: [
+        { name: "Node.js", icon: <SiNodedotjs className="w-6 h-6 text-[#339933]" /> },
+        { name: "Express.js", icon: <SiExpress className="w-6 h-6 text-slate-200" /> },
+        { name: "REST APIs", icon: <FaServer className="w-6 h-6 text-[#22D3EE]" /> },
         { name: "SQL", icon: <SiPostgresql className="w-6 h-6 text-[#4169E1]" /> },
+        { name: "MongoDB", icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> },
+        { name: "Supabase", icon: <SiSupabase className="w-6 h-6 text-[#3ECF8E]" /> },
       ],
     },
     {
-      title: "AI EXPERTISE",
+      title: "CYBERSECURITY & NETWORKING",
       skills: [
-        { name: "Deep Learning", icon: <FaBrain className="w-6 h-6 text-[#FF4500]" /> },
-        { name: "NLP (RAG, Fine-tuning)", icon: <FaBrain className="w-6 h-6 text-[#10A37F]" /> },
-        { name: "Computer Vision", icon: <FaBrain className="w-6 h-6 text-[#0055FF]" /> },
-        { name: "Machine Learning", icon: <FaBrain className="w-6 h-6 text-[#FFD700]" /> },
+        { name: "Linux", icon: <SiLinux className="w-6 h-6 text-[#FCC624]" /> },
+        { name: "Network Security", icon: <FaShieldHalved className="w-6 h-6 text-[#22D3EE]" /> },
+        { name: "Firewalls", icon: <FaLock className="w-6 h-6 text-[#EF4444]" /> },
+        { name: "IDS/IPS", icon: <FaShieldHalved className="w-6 h-6 text-[#F59E0B]" /> },
+        { name: "Ethical Hacking", icon: <FaTerminal className="w-6 h-6 text-[#10B981]" /> },
+        { name: "Vulnerability Testing", icon: <FaUserSecret className="w-6 h-6 text-[#A855F7]" /> },
+        { name: "Email Security", icon: <FaEnvelope className="w-6 h-6 text-[#3B82F6]" /> },
+        { name: "Phishing Awareness", icon: <FaUserSecret className="w-6 h-6 text-[#EC4899]" /> },
+        { name: "Networking Fundamentals", icon: <FaNetworkWired className="w-6 h-6 text-[#06B6D4]" /> },
       ],
     },
     {
-      title: "TOOLS & PROBLEM SOLVING",
+      title: "DEVOPS",
       skills: [
-        { name: "Git & Github", icon: <SiGit className="w-6 h-6 text-[#F05032]" /> },
-        { name: "Problem Solving", icon: <FaBrain className="w-6 h-6 text-[#8B008B]" /> },
+        { name: "Docker", icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
+        { name: "Containerization", icon: <SiDocker className="w-6 h-6 text-[#38BDF8]" /> },
+        { name: "CI/CD", icon: <SiGithubactions className="w-6 h-6 text-[#2088FF]" /> },
+        { name: "GitHub Actions", icon: <SiGithubactions className="w-6 h-6 text-[#2088FF]" /> },
+        { name: "Cloud Concepts", icon: <FaCloud className="w-6 h-6 text-[#38BDF8]" /> },
+        { name: "System Administration", icon: <FaServer className="w-6 h-6 text-[#A855F7]" /> },
+        { name: "Monitoring Fundamentals", icon: <FaDesktop className="w-6 h-6 text-[#10B981]" /> },
+      ],
+    },
+    {
+      title: "LANGUAGES & TOOLS",
+      skills: [
+        { name: "C++", icon: <SiCplusplus className="w-6 h-6 text-[#00599C]" /> },
+        { name: "Java", icon: <FaJava className="w-6 h-6 text-[#ED8B00]" /> },
+        { name: "Python", icon: <SiPython className="w-6 h-6 text-[#3776AB]" /> },
+        { name: "Git", icon: <SiGit className="w-6 h-6 text-[#F05032]" /> },
+        { name: "GitHub", icon: <SiGithub className="w-6 h-6 text-white" /> },
       ],
     },
   ];
@@ -117,7 +158,7 @@ export default function SkillsSection() {
           <div className="mb-4 flex items-center gap-3">
             <FaFan className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-300 animate-spin [animation-duration:6s] drop-shadow-[0_0_16px_rgba(34,211,238,0.8)]" />
             <span className="text-xs font-mono tracking-[0.3em] text-cyan-300 uppercase">
-              ( SKILLS & TECH STACK )
+              ( SKILLS &amp; TECH STACK )
             </span>
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight font-outfit text-white">

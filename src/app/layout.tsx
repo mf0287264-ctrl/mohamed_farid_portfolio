@@ -34,9 +34,14 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "mohamed tareq - AI Engineer",
+  title: "Mohamed Farid - Software Engineer | Full-Stack Developer",
   description:
-    "mohamed tareq is an AI Engineer specializing in developing and implementing advanced artificial intelligence solutions. With expertise in machine learning, deep learning, and natural language processing, he creates innovative applications that leverage AI to solve complex problems. His work focuses on building intelligent systems that enhance user experiences and drive technological advancements across various industries.",
+    "Mohamed Farid is a Computer Science student and Software Engineer focused on Full-Stack Web Development, with experience in React, Next.js, Node.js, Express.js, TypeScript, SQL, MongoDB, Git, Docker, Cybersecurity, and DevOps.",
+  openGraph: {
+    title: "Mohamed Farid - Software Engineer",
+    description: "Computer Science Student & Full-Stack Developer",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

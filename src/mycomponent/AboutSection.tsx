@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import tareqPic from "@/asstest/tareq.jpg";
+import faridPic from "@/asstest/farid.jpg";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -117,16 +117,16 @@ export default function AboutSection() {
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* LEFT COLUMN: USER PORTRAIT IMAGE (TAREQ.PNG FROM ASSTEST - ORIGINAL VIBRANT FULL COLOR) */}
+          {/* LEFT COLUMN: USER PORTRAIT IMAGE */}
           <div
             ref={imageRef}
             className="lg:col-span-5 relative w-full aspect-[4/5] sm:h-[580px] rounded-3xl overflow-hidden border border-cyan-400/25 shadow-2xl bg-slate-950/85 backdrop-blur-md group"
           >
             <Image
-              src={tareqPic}
-              alt="AI Engineer & Developer Portrait"
+              src={faridPic}
+              alt="Mohamed Farid - Software Engineer & Full-Stack Developer"
               fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
               priority
             />
             {/* Subtle Ambient Gradient Overlay */}
@@ -134,7 +134,7 @@ export default function AboutSection() {
             <div className="absolute inset-0 border border-cyan-400/30 rounded-3xl pointer-events-none group-hover:border-cyan-400/60 transition-colors" />
           </div>
 
-          {/* RIGHT COLUMN: ABOUT CONTENT MATCHING REFERENCE SCREENSHOT EXACTLY */}
+          {/* RIGHT COLUMN: ABOUT CONTENT */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* MAIN HEADER TITLE WITH CYAN HIGHLIGHT */}
             <h2
@@ -142,7 +142,7 @@ export default function AboutSection() {
               className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight font-outfit text-white leading-[1.05] mb-8"
             >
               PROGRAMMER, DEVELOPER,{" "}
-              <span className="text-cyan-300">AI-ENGINEER/</span>
+              <span className="text-cyan-300">FULL-STACK/</span>
             </h2>
 
             {/* HIGH-IMPACT SUBTITLE PARAGRAPH */}
@@ -150,7 +150,7 @@ export default function AboutSection() {
               ref={p1Ref}
               className="text-lg sm:text-xl md:text-2xl font-medium text-slate-200 leading-relaxed font-outfit mb-12 max-w-2xl"
             >
-              Last-year Artificial Intelligence student with hands-on experience in machine learning, deep learning, and end-to-end model deployment. Built and deployed production-ready ML systems. Strong in Python, data analysis, and applied ML, with experience teaching and mentoring peers.
+              Computer Science student focused on Full-Stack Web Development, with experience in React, Next.js, Node.js, Express.js, TypeScript, SQL, MongoDB, Git, and Docker. Knowledgeable in Cybersecurity, Networking, Linux, and DevOps.
             </p>
 
             {/* LOWER SECTION: ( ABOUT ME ) LABEL + GLOWING ORB ON LEFT, PARAGRAPHS ON RIGHT */}
@@ -171,17 +171,11 @@ export default function AboutSection() {
               {/* RIGHT MINI-COLUMN: DETAILED NARRATIVE PARAGRAPHS */}
               <div className="sm:col-span-8 flex flex-col gap-6">
                 <p className="text-sm sm:text-base md:text-lg text-slate-300/90 font-light leading-relaxed font-outfit">
-                  Building intelligent, user-centric AI solutions is my primary
-                  focus. I ensure each model and application leaves users with a
-                  feel-good sensation through meticulous attention to detail and
-                  robust engineering principles.
+                  I am Mohamed Farid, a Computer Science student at October 6 University (Major: CS, GPA: 3.51) and aspiring Software Engineer. My main development experience is centered around React, Next.js, Node.js, Express.js, TypeScript, SQL, MongoDB, and modern web technologies.
                 </p>
 
                 <p className="text-sm sm:text-base md:text-lg text-slate-300/90 font-light leading-relaxed font-outfit">
-                  When I'm not immersed in machine learning models and web
-                  architecture, you can find me sharing insights about modern AI
-                  engineering, exploring 3D interactive graphics, and building
-                  scalable full-stack products.
+                  Alongside software development, I have developed knowledge in Cybersecurity, Networking, Linux, and DevOps, including Docker, CI/CD, cloud concepts, and system administration. I enjoy building practical applications and writing clean, maintainable, scalable, and secure software.
                 </p>
               </div>
             </div>
